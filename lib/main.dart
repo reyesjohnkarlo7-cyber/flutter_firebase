@@ -1,7 +1,9 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_firebase/student_page.dart';
 
 import 'firebase_options.dart';
+
 
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -25,7 +27,7 @@ class MyApp extends StatelessWidget {
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
       ),
-      home: const FirebaseHomePage(),
+      home: FirebaseHomePage(),
     );
   }
 }
@@ -40,7 +42,7 @@ class FirebaseHomePage extends StatelessWidget {
         title: const Text('Flutter Firebase'),
         centerTitle: true,
       ),
-      body: const Center(
+      body:  Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
@@ -53,6 +55,15 @@ class FirebaseHomePage extends StatelessWidget {
                 fontWeight: FontWeight.bold,
               ),
             ),
+            SizedBox(height: 10),
+            ElevatedButton(onPressed: () {
+            Navigator.push(context,MaterialPageRoute(builder: (_) => StudentPage()));
+            }, 
+            style: ElevatedButton.styleFrom(
+              backgroundColor: Colors.blue,
+              foregroundColor: Colors.white
+            ),
+            child: Text("Create Student"))
           ],
         ),
       ),
